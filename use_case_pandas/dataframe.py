@@ -1,8 +1,9 @@
 import sqlite3
 import pandas as pd
-
-db_file = r'C:\Users\Zaid Chashoo\PycharmProjects\ASSIGNMENT\Data Engineer_ETL Assignment.db'
-
+import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+db_file = os.path.join(script_dir, 'Data Engineer_ETL Assignment.db')
+csv_file_path = 'pd_final.csv'
 try:
     conn = sqlite3.connect(db_file)
     cursor = conn.cursor()

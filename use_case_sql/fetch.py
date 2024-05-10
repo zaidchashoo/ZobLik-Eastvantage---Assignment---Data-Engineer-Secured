@@ -1,7 +1,8 @@
 import sqlite3
 import csv
-
-db_file = r'C:\Users\Zaid Chashoo\PycharmProjects\ASSIGNMENT\Data Engineer_ETL Assignment.db'
+import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+db_file = os.path.join(script_dir, 'Data Engineer_ETL Assignment.db')
 csv_file_path = 'sql_final.csv'
 
 try:
@@ -46,7 +47,6 @@ except Exception as e:
     print("Error occurred:", e)
 
 finally:
-    rows = []  # Initialize rows to an empty list
     with open(csv_file_path, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
         csv_writer.writerow(['customer_id', 'age', 'item_name', 'quantity'])
